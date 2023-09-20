@@ -69,16 +69,14 @@ parser.add_argument('--input_dir', default='/l/users/MODE/',
 #parser.add_argument('--input_dir', default='/media/rtx2/DATA/stanford2d3d',
 ##parser.add_argument('--input_dir', default='/home/rtx2/NeurIPS/spherical_mvs/data/omnidepth',
 ##parser.add_argument('--input_dir', default='/media/rtx2/DATA/Structured3D/',
-
-
-
-
                     help='input data directory')
-parser.add_argument('--trainfile', default='./filenames/train_stanford2d3d.txt',
+
+
+parser.add_argument('--trainfile', default='./OmniFusion/filenames/train_stanford2d3d.txt',
                     help='train file name')
 
 
-parser.add_argument('--testfile', default='./filenames/test_stanford2d3d_my.txt',
+parser.add_argument('--testfile', default='./OmniFusion/filenames/test_stanford2d3d_my.txt',
                     help='validation file name')
 # parser.add_argument('--testfile', default='./filenames/test_stanford2d3d.txt',
 #                     help='validation file name')
@@ -97,7 +95,7 @@ parser.add_argument('--checkpoint', default= None,
                     help='load checkpoint path')
 parser.add_argument('--save_checkpoint', default='checkpoints',
                     help='save checkpoint path')
-parser.add_argument('--save_path', default='./results/stanford/512x1024/resnet34/visualize_point_2_iter',
+parser.add_argument('--save_path', default='./OmniFusion/results/stanford/512x1024/resnet34/visualize_point_2_iter',
                     help='save checkpoint path')                    
 parser.add_argument('--tensorboard_path', default='logs',
                     help='tensorboard path')
