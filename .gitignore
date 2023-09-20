@@ -3,6 +3,28 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+# My:
+/OmniFusion/model/pre_trained/
+/OmniFusion/results/
+
+# from omnifusion:
+*.ply
+*.png
+*.pth 
+*.tar 
+
+/OmniFusion/360d
+/OmniFusion/360d_tmp
+/OmniFusion/stanford
+/OmniFusion/matterport3d
+/OmniFusion/hohonet
+/OmniFusion/unifuse
+/OmniFusion/feature_output
+/OmniFusion/feature_output_base
+/OmniFusion/grid
+
+
 # C extensions
 *.so
 
