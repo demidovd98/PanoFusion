@@ -85,7 +85,7 @@ for filename in myfiles:
         output_render = render[0]
         output_render = output_render.permute(1,2,0)
         output_render = output_render.detach().cpu().numpy()
-        plot.imsave('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/render_' + filename.split('/')[-1], 
+        plot.imsave('/l/users/MODE/outputs/panodepth/render_' + filename.split('/')[-1], 
            output_render, cmap="jet")
        
        
@@ -93,7 +93,7 @@ for filename in myfiles:
         depth_coarse_img = depth_np[0, 0, :, :]
         depth_coarse_img[depth_coarse_img>8] = 0
         #depth_coarse_img = (depth_coarse_img / 8 * 65535).astype(np.uint16)
-        plot.imsave('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/depth_coarse_' + filename.split('/')[-1], 
+        plot.imsave('/l/users/MODE/outputs/panodepth/depth_coarse_' + filename.split('/')[-1], 
            depth_coarse_img, cmap="jet")
         
     
@@ -111,7 +111,7 @@ for filename in myfiles:
         depth_np = depth.detach().cpu().numpy()
         depth_np[depth_np>8] = 0
 
-    plot.imsave('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/depth_final_' + filename.split('/')[-1], depth_np, cmap="jet")
+    plot.imsave('/l/users/MODE/outputs/panodepth/depth_final_' + filename.split('/')[-1], depth_np, cmap="jet")
     depth_np = (depth_np / 8 * 65535).astype(np.uint16)
     #cv2.imwrite('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/depth_final_' + filename.split('/')[-1], depth_np)
 
