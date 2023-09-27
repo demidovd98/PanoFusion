@@ -361,3 +361,70 @@ def remove_flying_pixel(depth, th=5):
     mask = (edge < th).float()
     depth *= mask
     return depth
+
+class AverageMeter(object):
+    """Computes and stores the average and current value"""
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
+        self.count = 0
+
+    def update(self, val, n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
+        self.avg = self.sum / self.count
+
+    def to_dict(self):
+        return {'val' : self.val,
+            'sum' : self.sum,
+            'count' : self.count,
+            'avg' : self.avg}
+
+    def from_dict(self, meter_dict):
+        self.val = meter_dict['val']
+        self.sum = meter_dict['sum']
+        self.count = meter_dict['count']
+        self.avg = meter_dict['avg']
+        
+
+def compute_eval_metrics(output, gt, depth_mask):
+        '''
+        Computes metrics used to evaluate the model
+        '''
+        depth_pred = output
+        gt_depth = gt
+
+        N = depth_mask.sum()
+
+        # Align the prediction scales via median
+        median_scaling_factor = gt_depth[depth_mask>0].median() / depth_pred[depth_mask>0].median()
+        depth_pred *= median_scaling_factor
+
+        abs_rel = abs_rel_error(depth_pred, gt_depth, depth_mask)
+        sq_rel = sq_rel_error(depth_pred, gt_depth, depth_mask)
+        rms_sq_lin = lin_rms_sq_error(depth_pred, gt_depth, depth_mask)
+        rms_sq_log = log_rms_sq_error(depth_pred, gt_depth, depth_mask)
+        d1 = delta_inlier_ratio(depth_pred, gt_depth, depth_mask, degree=1)
+        d2 = delta_inlier_ratio(depth_pred, gt_depth, depth_mask, degree=2)
+        d3 = delta_inlier_ratio(depth_pred, gt_depth, depth_mask, degree=3)
+        abs_rel_error_meter.update(abs_rel, N)
+        sq_rel_error_meter.update(sq_rel, N)
+        lin_rms_sq_error_meter.update(rms_sq_lin, N)
+        log_rms_sq_error_meter.update(rms_sq_log, N)
+        d1_inlier_meter.update(d1, N)
+        d2_inlier_meter.update(d2, N)
+        d3_inlier_meter.update(d3, N)
+ 
+ 
+abs_rel_error_meter = AverageMeter()
+sq_rel_error_meter = AverageMeter()
+lin_rms_sq_error_meter = AverageMeter()
+log_rms_sq_error_meter = AverageMeter()
+d1_inlier_meter = AverageMeter()
+d2_inlier_meter = AverageMeter()
+d3_inlier_meter = AverageMeter()

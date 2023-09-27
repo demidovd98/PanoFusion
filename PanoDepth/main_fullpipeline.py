@@ -39,19 +39,19 @@ parser.add_argument('--maxdisp', type=int ,default=192,
                     help='maxium disparity')
 parser.add_argument('--model', default='psmnet',
                     help='select model')
-parser.add_argument('--input_dir', default='/media/rtx2/DATA/Student_teacher_depth/stanford2d3d',
+parser.add_argument('--input_dir', default='/l/users/MODE/Datasets/Stanford2D3D/',
                     help='input data directory')
-parser.add_argument('--trainfile', default='train_stanford2d3d.txt',
+parser.add_argument('--trainfile', default='/home/muhammad.siddiqui/Desktop/muhammad.siddiqui/PanoFusion/PanoDepth/train_stanford2d3d.txt',
                     help='train file name')
-parser.add_argument('--testfile', default='test_stanford2d3d.txt',
+parser.add_argument('--testfile', default='/home/muhammad.siddiqui/Desktop/muhammad.siddiqui/PanoFusion/PanoDepth/test_stanford2d3d.txt',
                     help='validation file name')
-parser.add_argument('--epochs', type=int, default=150,
+parser.add_argument('--epochs', type=int, default=25,
                     help='number of epochs to train')
 parser.add_argument('--start_decay', type=int, default=60,
                     help='number of epoch for lr to start decay')
 parser.add_argument('--start_learn', type=int, default=100,
                     help='number of iterations for stereo network to start learn')
-parser.add_argument('--batch', type=int, default=8,
+parser.add_argument('--batch', type=int, default=4,
                     help='number of batch to train')
 parser.add_argument('--visualize_interval', type=int, default=40,
                     help='number of batch to train')
@@ -153,8 +153,8 @@ first_network = convert_model(first_network)
 # option 2, spherical unet
 #view_syn_network = SphericalUnet()
 first_network = nn.DataParallel(first_network)
-state_dict = torch.load('visualize_coarse_pretrain/checkpoints/checkpoint_latest.tar')
-first_network.load_state_dict(state_dict)
+# state_dict = torch.load('visualize_coarse_pretrain/checkpoints/checkpoint_latest.tar')
+# first_network.load_state_dict(state_dict)
 first_network.cuda()
 #----------------------------------------------------------
 

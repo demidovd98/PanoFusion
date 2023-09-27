@@ -392,7 +392,8 @@ class PSMNet(nn.Module):
         #self.maxdisp = maxdisp
         self.ndisps = ndisps
         self.disp_interval_pixel = disp_interval_pixel
-        self.num_stage = len(str(self.ndisps))
+        # self.num_stage = len(str(self.ndisps))
+        self.num_stage = len(self.ndisps)
         self.cr_base_chs = cr_base_chs
         self.grad_method = grad_method
         self.ns_size = ns_size

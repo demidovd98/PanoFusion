@@ -142,7 +142,7 @@ class ResNet360(nn.Module):
         self.input0_2 = ConvBlock(in_channels, 16, (5,7), padding=(2,3))
         self.input0_3 = ConvBlock(in_channels, 16, 7, padding=3)
         
-        self.encoder = load_pretrain_resnet('resnet34')
+        self.encoder = load_pretrain_resnet('resnet18')
         self.conv1 = self.encoder.conv1
         self.bn1 = self.encoder.bn1
         self.relu = self.encoder.relu

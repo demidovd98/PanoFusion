@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import argparse
 import os
-#import OpenEXR, Imath, array
+import OpenEXR, Imath, array
 import multiprocessing as mp
 from cvt import e2p, utils
 
@@ -13,9 +13,9 @@ parser.add_argument('--vfov', type=int, default=80, help='vertical fov')
 parser.add_argument('--hfov', type=int, default=90, help='horizontal fov')
 parser.add_argument('--train', action='store_true', default=False,
                     help='train or test')
-parser.add_argument('--train_dir', type=str, default='pano_perspective_data/train',
+parser.add_argument('--train_dir', type=str, default='train_stanford2d3d.txt',
                     help='train file directory')
-parser.add_argument('--test_dir', type=str, default='pano_perspective_data/test',
+parser.add_argument('--test_dir', type=str, default='test_stanford2d3d.txt',
                     help='test file directory')
 args = parser.parse_args()
 train_file = np.loadtxt('train.txt', dtype=str)

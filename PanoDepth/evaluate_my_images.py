@@ -22,7 +22,7 @@ from util import *
 num_gpu = torch.cuda.device_count()
 #first_network = ResNet360(wf=32, norm_type='batchnorm', activation='relu', aspp=False)
 #first_network = ResNet360(2//num_gpu, output_size=(256, 512), aspp=True)
-first_network = ResNet360(2//num_gpu, aspp=True)
+first_network = ResNet360()
 first_network = convert_model(first_network)
 first_network = nn.DataParallel(first_network)
 first_network.cuda()
@@ -57,7 +57,7 @@ model = model.eval()
 '''
 first_network = first_network.eval()
 stereo_network = stereo_network.eval() 
-myfiles = glob.glob('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/area_3/pano/rgb/camera_0e30c45ea0604ddeb7467fd384362503_office_7_frame_equirectangular_domain_rgb.png')
+myfiles = glob.glob('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/area_3/pano/rgb/camera_614b84a8cd784710afb803d9d3dc8612_office_10_frame_equirectangular_domain_rgb.png')
 
 myfiles = np.sort(myfiles)
 for filename in myfiles:
@@ -72,7 +72,7 @@ for filename in myfiles:
     sgrid = S360.grid.create_spherical_grid(512).cuda()
     uvgrid = S360.grid.create_image_grid(512, 256).cuda()
     with torch.no_grad():
-        coarse_depth_pred = torch.abs(first_network(img))
+        coarse_depth_pred = torch.abs(first_network(img[:,:3,:,:]))
             
         if direction == 'vertical':
             render = dibr_vertical(coarse_depth_pred.clamp(0.1, 8.0), img, uvgrid, sgrid, baseline=baseline)
@@ -85,14 +85,14 @@ for filename in myfiles:
         output_render = render[0]
         output_render = output_render.permute(1,2,0)
         output_render = output_render.detach().cpu().numpy()
-        plot.imsave('/l/users/MODE/outputs/panodepth/render_' + filename.split('/')[-1], 
-           output_render, cmap="jet")
+        # plot.imsave('/l/users/MODE/outputs/panodepth/render_' + filename.split('/')[-1], 
+        #    output_render, cmap="jet")
        
        
         depth_np = coarse_depth_pred.detach().cpu().numpy()
         depth_coarse_img = depth_np[0, 0, :, :]
         depth_coarse_img[depth_coarse_img>8] = 0
-        #depth_coarse_img = (depth_coarse_img / 8 * 65535).astype(np.uint16)
+        depth_coarse_img = (depth_coarse_img / 8 * 65535).astype(np.uint16)
         plot.imsave('/l/users/MODE/outputs/panodepth/depth_coarse_' + filename.split('/')[-1], 
            depth_coarse_img, cmap="jet")
         
@@ -111,8 +111,8 @@ for filename in myfiles:
         depth_np = depth.detach().cpu().numpy()
         depth_np[depth_np>8] = 0
 
-    plot.imsave('/l/users/MODE/outputs/panodepth/depth_final_' + filename.split('/')[-1], depth_np, cmap="jet")
-    depth_np = (depth_np / 8 * 65535).astype(np.uint16)
+    # plot.imsave('/l/users/MODE/outputs/panodepth/depth_final_' + filename.split('/')[-1], depth_np, cmap="jet")
+    # depth_np = (depth_np / 8 * 65535).astype(np.uint16)
     #cv2.imwrite('/l/users/muhammad.siddiqui/Datasets/stanford2d3d/depth_final_' + filename.split('/')[-1], depth_np)
 
 #applying cv2 stereo matching
@@ -126,8 +126,21 @@ for filename in myfiles:
   #  imgR=imgR[0]
   #  imgR = imgR.transpose(1,2,0)
     #imgR=cv2.cvtColor(imgR, cv2.COLOR_BGR2GRAY)
-    imgR = tv.transforms.functional.rgb_to_grayscale(img , 1)
-    imgL = tv.transforms.functional.rgb_to_grayscale(render , 1)
+    imgL = img[0].detach().cpu().numpy().transpose(1,2,0)
+    # plot.imshow(imgL)
+    imgL = cv2.cvtColor(imgL, cv2.COLOR_BGR2GRAY)
+    # plot.imshow(imgL)
+    imgL = (np.rint(imgL)).astype(np.uint8)
+    plot.imshow(imgL)
+    # imgL = imgL[..., np.newaxis].transpose(2,0,1)
+    imgR = render[0].detach().cpu().numpy().transpose(1,2,0)
+    plot.imshow(imgR)
+    imgR = cv2.cvtColor(imgR, cv2.COLOR_BGR2GRAY)
+    imgR = (np.rint(imgR)).astype(np.uint8)
+    # plot.figure()
+    plot.imshow(imgR)
+    stereo = cv2.StereoBM.create(numDisparities=16, blockSize=15)
     disparity = stereo.compute(imgL,imgR)
-    plot.imshow(disparity,'gray')
-    plot.show()
+    plot.imshow(disparity)
+    render
+    
