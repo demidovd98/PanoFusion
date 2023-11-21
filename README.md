@@ -16,8 +16,12 @@ source /apps/local/anaconda2023/conda_init.sh
 # (local):
 conda activate omnifusion_pip
 # (shared): 
+- Omnifusion:
 conda activate /l/users/MODE/envs/omnifusion_pip
+- Panodepth:
+conda activate /l/users/MODE/envs/panodepth/
 
+- Omnifusion:
 python ./OmniFusion/test.py --nrows 4
 ```
 

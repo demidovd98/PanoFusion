@@ -5,8 +5,26 @@ __pycache__/
 
 
 # My:
-/OmniFusion/model/pre_trained/
-/OmniFusion/results/
+#/_extra/
+_extra/PanoDepth/
+_extra/OmniFusion/grid/
+_extra/OmniFusion/results/
+_extra/OmniFusion/model/pre_trained/
+
+grid/
+output/
+visualize_stanford2d3d_ours_48_24/
+
+__old/
+
+
+/_extra/visualize_stanford2d3d_ours_48_24/
+
+# Old:
+# /OmniFusion/model/pre_trained/
+# /OmniFusion/results/
+# /PanoFusion/OmniFusion/model/pre_trained/
+# /PanoFusion/OmniFusion/grid/
 
 # from omnifusion:
 *.ply
@@ -23,6 +41,10 @@ __pycache__/
 /OmniFusion/feature_output
 /OmniFusion/feature_output_base
 /OmniFusion/grid
+
+# from panodepth;
+/PanoDepth/logs
+
 
 
 # C extensions

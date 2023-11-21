@@ -233,6 +233,7 @@ def main():
     network.eval()
     for batch_idx, (rgb, depth, mask) in tqdm(enumerate(val_dataloader)):
         bs, _, h, w = rgb.shape
+        print(rgb.shape)
         print(h, w)
         rgb, depth, mask = rgb.cuda(), depth.cuda(), mask.cuda()
         
@@ -260,11 +261,21 @@ def main():
             gtxyz = xyz * depth.reshape(bs, w*h, 1)    
             predxyz = xyz * equi_outputs.reshape(bs, w*h, 1)
             gtxyz = gtxyz.detach().cpu().numpy()
-            predxyz = predxyz.detach().cpu().numpy()   
+            predxyz = predxyz.detach().cpu().numpy()
             #error = error.detach().cpu().numpy()
             if batch_idx % 20 == 0:
                 rgb_img = rgb_img[0, :, :, :].transpose(1, 2, 0)
                 depth_pred_img = depth_prediction[0, 0, :, :]
+                print(depth_pred_img)
+                print(depth_pred_img.max())
+
+                print(depth_pred_img.shape)
+                depth_pred_img_small = cv2.resize(depth_pred_img, (512, 256), interpolation = cv2.INTER_AREA)
+                print(depth_pred_img_small.shape)
+
+
+
+
                 depth_gt_img = equi_gt[0, 0, :, :]
                 error_img = error_img[0, 0, :, :] 
                 gtxyz_np = predxyz[0, ...]
@@ -273,6 +284,8 @@ def main():
                             rgb_img*255)
                 plot.imsave('{}/test_equi_pred_{}.png'.format(result_view_dir, batch_idx),
                             depth_pred_img, cmap="jet")
+                plot.imsave('{}/test_equi_pred_small_{}.png'.format(result_view_dir, batch_idx),
+                            depth_pred_img_small, cmap="jet")                
                 plot.imsave('{}/test_equi_gt_{}.png'.format(result_view_dir, batch_idx),
                             depth_gt_img, cmap="jet")
                 plot.imsave('{}/test_error_{}.png'.format(result_view_dir, batch_idx),

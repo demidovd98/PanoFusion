@@ -96,7 +96,9 @@ class OmniDepthDataset(torch.utils.data.Dataset):
     def readRGBPano(self, path):
         '''Read RGB and normalize to [0,1].'''
         rgb = cv2.imread(path)
+
         rgb = cv2.resize(rgb, (512, 256), interpolation = cv2.INTER_AREA)
+        #rgb = cv2.resize(rgb, (1024, 512), interpolation = cv2.INTER_AREA)
 
         return rgb
 
@@ -108,7 +110,10 @@ class OmniDepthDataset(torch.utils.data.Dataset):
         #return depth_img.astype(np.float32)
 
         depth = cv2.imread(path, -1).astype(np.float32)
+
         depth = cv2.resize(depth, (512, 256), interpolation = cv2.INTER_AREA)
+        #depth = cv2.resize(depth, (1024, 512), interpolation = cv2.INTER_AREA)
+
         depth = depth/65535*128
         return depth
 

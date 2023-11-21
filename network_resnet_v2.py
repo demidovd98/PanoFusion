@@ -137,6 +137,9 @@ class ResNet360(nn.Module):
         
         super(ResNet360, self).__init__()
         in_channels= 3
+        out_channels=1
+        features=256
+
         self.input0_0 = ConvBlock(in_channels, 16, (3,9), padding=(1,4))
         self.input0_1 = ConvBlock(in_channels, 16, (5,11), padding=(2,5))
         self.input0_2 = ConvBlock(in_channels, 16, (5,7), padding=(2,3))
@@ -144,7 +147,7 @@ class ResNet360(nn.Module):
         
         self.encoder = load_pretrain_resnet('resnet18')
         self.conv1 = self.encoder.conv1
-        self.bn1 = self.encoder.bn1
+        self.bn1 = self.encoder.bn1 # check group norm
         self.relu = self.encoder.relu
         self.maxpool = self.encoder.maxpool
         self.layer1 = self.encoder.layer1
@@ -162,6 +165,7 @@ class ResNet360(nn.Module):
         self.up3 = UpSample(skip_input=features//4 + 64,  output_features=features//8)
         self.up4 = UpSample(skip_input=features//8 + 64,  output_features=features//16)
         self.conv3 = nn.Conv2d(features//16, out_channels, kernel_size=3, stride=1, padding=1)
+
         '''
         self.up1 = UpProject(256, 128)
         self.up2 = UpProject(128, 64)
@@ -174,7 +178,6 @@ class ResNet360(nn.Module):
     def forward(self, x):
         """Standard forward"""
     
-    
         input0_0_out = self.input0_0(x)
         input0_1_out = self.input0_1(x)
         input0_2_out = self.input0_2(x)
@@ -184,7 +187,6 @@ class ResNet360(nn.Module):
             input0_1_out, 
             input0_2_out, 
             input0_3_out), 1)
-        
         
         encoder_features, decoder_features = [], []
         #x = self.relu(self.bn1(self.conv1(x)))
@@ -200,7 +202,7 @@ class ResNet360(nn.Module):
         x = self.layer4(x)
         encoder_features.append(x)
               
-       # x = F.relu(self.conv2(x))
+        # x = F.relu(self.conv2(x))
         #x = self.bn2(x)
         x = self.aspp(x)
         decoder_features.append(x)

@@ -7,8 +7,8 @@ from torch.nn.modules.batchnorm import BatchNorm2d
 import torchvision
 import torch.nn.functional as F
 import numpy as np
-from equi_pers.equi2pers_v3 import equi2pers
-from equi_pers.pers2equi_v3 import pers2equi 
+from _extra.OmniFusion.equi_pers.equi2pers_v3 import equi2pers
+from _extra.OmniFusion.equi_pers.pers2equi_v3 import pers2equi 
 import functools
 import copy
 from .blocks import Transformer_Block 
