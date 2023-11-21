@@ -21,7 +21,7 @@ visualize_stanford2d3d_ours_48_24/logs/
 
 # from omnifusion:
 *.ply
-*.png
+#*.png
 *.pth 
 *.tar 
 
