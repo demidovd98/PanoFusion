@@ -20,11 +20,36 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 
 ## Instructions
 
+#### Prepare the environment:
+```
+cd <repo>
+
+conda create -n omnifusion_pip python=3.7.4 
+conda activate omnifusion_pip
+pip3 install -r requirements.txt
+conda install -c conda-forge openexr-python # yes
+pip install mmcv==1.5.0
+pip install mmsegmentation==0.23.0
+```
+
 #### Run:
 
 ```
-# no cuda load
+cd <repo>
 
+conda activate omnifusion_pip
+
+python3 main_fullpipeline.py # fine-tuning
+
+python3 evaluate_fullpipeline.py # use on test dataset
+
+python3 evaluate_fullpipeline_mymg.py # use on random images
+```
+
+
+## Other
+
+```
 cd '/l/users/20020067/Study/PhD/2 semester/CV-802 (3D vision)/Project/_Ours/PanoFusion/'
 
 source /apps/local/anaconda2023/conda_init.sh
@@ -36,15 +61,12 @@ conda activate /l/users/MODE/envs/omnifusion_pip
 python ./OmniFusion/test.py --nrows 4
 ```
 
-
-## Other
-
 #### Create environment:
 
 ```
 conda activate omnifusion_pip
 pip3 install -r requirements.txt
-conda install -c conda-forge openexr # not rly?
+#conda install -c conda-forge openexr # not rly?
 conda install -c conda-forge openexr-python # yes
 pip install mmcv==1.5.0
 pip install mmsegmentation==0.23.0
