@@ -17,8 +17,7 @@ _extra/visualize_stanford2d3d_ours_48_24/
 grid/
 output/
 visualize_stanford2d3d_ours_48_24/
-visualize_stanford2d3d_ours_48_24/logs
-
+visualize_stanford2d3d_ours_48_24/logs/
 
 # from omnifusion:
 *.ply
