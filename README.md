@@ -1,9 +1,24 @@
-# PanoFusion
+# PanoFusion : A Monocular Omnidirectional Depth Estimation 
+
+**A Python package for depth estimation from monocular 360 image**
+
+
+## Introduction
+
+The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDepth](https://yuyanli0831.github.io/PanoDepth-Website/) repository and [OmniFusion](https://github.com/yuyanli0831/OmniFusion) repository, both authored by created by [Yuyan Li](https://github.com/yuyanli0831). Building on these models, we developed PanoFusion, a model that estimates depth in 360-degree images in two stages. First, it makes a basic depth estimate using OmniFusion model at stage 1, hence getting enhanced synthesized views serving as refined input for the PanoDepth stage 2, the stereo matching phase. This leads to a much-improved final depth estimation. Compared to the original two models, PanoFusion shows better performance.
+
+
+## Pipeline
+
+<p align="center">
+<img src="Images/PanoFusionGit.drawio.png" alt="PanFPPL" width="750" height="350"/>
+<br>
+  <em> Figure 1. The 2-stage PanoFusion Framework. Stage 1: the pipeline accepts an ERP as input and synthesizes novel views (SV) based on the OmniFusion model for the next stage. Stage 2: the model takes the original ERP input image and the SV for the stereo-matching phase based on the Panodepth model. The result is a refined depth estimation. </em>
+</p>
 
 
 
-
-### Instructions:
+## Instructions
 
 #### Run:
 
@@ -16,17 +31,13 @@ source /apps/local/anaconda2023/conda_init.sh
 # (local):
 conda activate omnifusion_pip
 # (shared): 
-- Omnifusion:
 conda activate /l/users/MODE/envs/omnifusion_pip
-- Panodepth:
-conda activate /l/users/MODE/envs/panodepth/
 
-- Omnifusion:
 python ./OmniFusion/test.py --nrows 4
 ```
 
 
-### Other:
+## Other
 
 #### Create environment:
 
@@ -44,3 +55,14 @@ pip install mmsegmentation==0.23.0
 ```
 conda create --prefix ./name --clone name
 ```
+
+
+## Dataset
+
+- We trained our method on Stanford2D3D. 
+- We evaluate our model on Stanford2D3D and our own MBZUAI-MetaverseLab ERP images.
+
+
+Notes:
+- For Stanford2D3D: a standard pre-process of the original Matterport3D dataset is applied for the development of 360-image-based depth estimation.
+- For MBZUAI-MetaverseLab: images were captured on the MetaverseLab environment, with an Insta360 X3 camera.

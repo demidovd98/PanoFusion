@@ -5,26 +5,20 @@ __pycache__/
 
 
 # My:
+__old/
+
 #/_extra/
 _extra/PanoDepth/
 _extra/OmniFusion/grid/
 _extra/OmniFusion/results/
 _extra/OmniFusion/model/pre_trained/
+_extra/visualize_stanford2d3d_ours_48_24/
 
 grid/
 output/
 visualize_stanford2d3d_ours_48_24/
+visualize_stanford2d3d_ours_48_24/logs
 
-__old/
-
-
-/_extra/visualize_stanford2d3d_ours_48_24/
-
-# Old:
-# /OmniFusion/model/pre_trained/
-# /OmniFusion/results/
-# /PanoFusion/OmniFusion/model/pre_trained/
-# /PanoFusion/OmniFusion/grid/
 
 # from omnifusion:
 *.ply
@@ -32,18 +26,18 @@ __old/
 *.pth 
 *.tar 
 
-/OmniFusion/360d
-/OmniFusion/360d_tmp
-/OmniFusion/stanford
-/OmniFusion/matterport3d
-/OmniFusion/hohonet
-/OmniFusion/unifuse
-/OmniFusion/feature_output
-/OmniFusion/feature_output_base
-/OmniFusion/grid
+_extra/OmniFusion//OmniFusion/360d
+_extra/OmniFusion//OmniFusion/360d_tmp
+_extra/OmniFusion//OmniFusion/stanford
+_extra/OmniFusion//OmniFusion/matterport3d
+_extra/OmniFusion//OmniFusion/hohonet
+_extra/OmniFusion//OmniFusion/unifuse
+_extra/OmniFusion//OmniFusion/feature_output
+_extra/OmniFusion//OmniFusion/feature_output_base
+_extra/OmniFusion//OmniFusion/grid
 
 # from panodepth;
-/PanoDepth/logs
+_extra/PanoDepth/logs
 
 
 
