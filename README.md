@@ -85,7 +85,7 @@ conda create --prefix ./name --clone name
 
 ## Dataset
 
-- We trained our method on Stanford2D3D. 
+- We trained our method on [Stanford2D3D](http://buildingparser.stanford.edu/dataset.html). 
 - We evaluate our model on Stanford2D3D and our own MBZUAI-MetaverseLab ERP images.
 
 
