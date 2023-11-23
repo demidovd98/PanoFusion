@@ -27,8 +27,10 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
   <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
 </p>
 
+
+- MBZUAI MetaverseLab example:
 <p align="center">
-<img src="Images/Demo_Stand2D3D.gif" alt="PanFPPL" width="250" height="250"/>
+<img src="Images/PanoFusion_Result_MetaverseLab.png" alt="PanFPPL" width="920" height="230"/>
 <br>
   <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
 </p>
