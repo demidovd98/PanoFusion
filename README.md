@@ -49,9 +49,9 @@ python3 evaluate_fullpipeline_mymg.py # use on random images
 
 ## Models
 
-- **PanoDepth Model**: Available [here](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYYlJ4FvQw?e=8Akqmo).
-- **OmniFusion Model**: Available [here](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYYlJ4FvQw?e=8Akqmo).
-- **PanoFusion Model**: Available [here](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYY
+- [PanoDepth Model](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYYlJ4FvQw?e=8Akqmo)
+- [OmniFusion Model](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYYlJ4FvQw?e=8Akqmo)
+- [PanoFusion Model](https://mbzuaiac-my.sharepoint.com/:f:/g/personal/dmitry_demidov_mbzuai_ac_ae/Ev2nvnWoDHpLoB0LKbIhN5sB4KY1JxN6cUo-BYYlJ4FvQw?e=8Akqmo)
 
 
 ## Other
