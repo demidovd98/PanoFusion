@@ -20,7 +20,7 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 
 ## Examples:
 
-#### Images: 
+#### I- Images: 
 
 - Stanford2D3D dataset example:
 <p align="center">
@@ -39,7 +39,7 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 
 
 
-#### Videos: 
+#### II- Videos: 
 <p align="center">
   <img src="Images/Demo_Stand2D3D.gif"  alt="PanFPPL" width="200" height="200" style="margin-right: 2px;" />
   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100" />
