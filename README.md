@@ -17,9 +17,11 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
   <em> Figure 1. The 2-stage PanoFusion Framework. Stage 1: the pipeline accepts an ERP as input and synthesizes novel views (SV) based on the OmniFusion model for the next stage. Stage 2: the model takes the original ERP input image and the SV for the stereo-matching phase based on the Panodepth model. The result is a refined depth estimation. </em>
 </p>
 
-Stanford2D3D example:
+
+
+- Stanford2D3D dataset example:
 <p align="center">
-<img src="Images/Images/Fig 1.png" alt="PanFPPL" width="750" height="350"/>
+<img src="Images/PanoFusion_Result.png" alt="PanFPPL" width="900" height="250"/>
 <br>
   <em> Figure 1. The 2-stage PanoFusion Framework. Stage 1: the pipeline accepts an ERP as input and synthesizes novel views (SV) based on the OmniFusion model for the next stage. Stage 2: the model takes the original ERP input image and the SV for the stereo-matching phase based on the Panodepth model. The result is a refined depth estimation. </em>
 </p>
