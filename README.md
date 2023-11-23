@@ -20,6 +20,8 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 
 ## Examples:
 
+#### Images: 
+
 - Stanford2D3D dataset example:
 <p align="center">
 <img src="Images/PanoFusion_Result.png" alt="PanFPPL" width="900" height="250"/>
@@ -32,8 +34,21 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 <p align="center">
 <img src="Images/PanoFusion_Result_MetaverseLab.png" alt="PanFPPL" width="920" height="230"/>
 <br>
-  <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
+  <em> Figure 3. Left: MBZUAI MetaverseLab ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
 </p>
+
+
+
+#### Videos: 
+<p align="center">
+  <img src="Images/Demo_Stand2D3D.gif"  alt="PanFPPL" width="200" height="200" style="margin-right: 2px;" />
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100" />
+  <img src="Images/Demo_MetLab.gif"  alt="PanFPPL" width="200" height="200" style="margin-right: 2px;" />
+  <br>
+   <em> Figure 4. Left: Stanford2D3D example 3D point cloud Demo.. Right: MBZUAI MetaverseLab example 3D point cloud Demo. </em>
+</p>
+
+
 
 
 ## Instructions
