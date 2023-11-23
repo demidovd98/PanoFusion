@@ -18,12 +18,13 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 </p>
 
 
+## Examples:
 
 - Stanford2D3D dataset example:
 <p align="center">
 <img src="Images/PanoFusion_Result.png" alt="PanFPPL" width="900" height="250"/>
 <br>
-  <em> Figure 1. The 2-stage PanoFusion Framework. Stage 1: the pipeline accepts an ERP as input and synthesizes novel views (SV) based on the OmniFusion model for the next stage. Stage 2: the model takes the original ERP input image and the SV for the stereo-matching phase based on the Panodepth model. The result is a refined depth estimation. </em>
+  <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
 </p>
 
 
