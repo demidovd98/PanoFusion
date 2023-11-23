@@ -1,8 +1,7 @@
 # PanoFusion : A Monocular Omnidirectional Depth Estimation Model
-A Python package for depth estimation from monocular 360 image
 
 <p align="center">
-**Akashah Shabbir, Dmitry Demidov, Mohammad Ibraheem Siddiqui, Sara Ghaboura**
+Akashah Shabbir, Dmitry Demidov, Mohammad Ibraheem Siddiqui, Sara Ghaboura
 </p>
 
 ## Introduction
