@@ -1,4 +1,4 @@
-# PanoFusion : A Monocular Omnidirectional Depth Estimation Model
+# PanoFusion: A Monocular Omnidirectional Depth Estimation Model
 
 <p align="center">
 Akashah Shabbir, Dmitry Demidov, Mohammad Ibraheem Siddiqui, Sara Ghaboura
@@ -27,7 +27,11 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
   <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
 </p>
 
-
+<p align="center">
+<img src="Images/Demo_Stand2D3D.gif" alt="PanFPPL" width="250" height="250"/>
+<br>
+  <em> Figure 2. Left: Stanford2D3D ERP image as input to PanoFusion. Center: The depth estimation (DE) as output. Right: The ERP and the DE as input to MeshLab, the result is a 3D point cloud. </em>
+</p>
 
 
 ## Instructions
