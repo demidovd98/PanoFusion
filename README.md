@@ -42,7 +42,7 @@ The **PanoFusion** model is inspired by two state-of-the-art works: the  [PanoDe
 #### II- Videos: 
 <p align="center">
   <img src="Images/Demo_Stand2D3D.gif"  alt="PanFPPL" width="200" height="200" style="margin-right: 2px;" />
-  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100" />
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="150" />
   <img src="Images/Demo_MetLab.gif"  alt="PanFPPL" width="200" height="200" style="margin-right: 2px;" />
   <br>
    <em> Figure 4. Left: Stanford2D3D example 3D point cloud Demo.. Right: MBZUAI MetaverseLab example 3D point cloud Demo. </em>
